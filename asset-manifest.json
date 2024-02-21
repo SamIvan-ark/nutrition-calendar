@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nutrition-calendar/static/css/main.19cc30d1.css",
+    "main.js": "/nutrition-calendar/static/js/main.b1ee022c.js",
+    "index.html": "/nutrition-calendar/index.html",
+    "main.19cc30d1.css.map": "/nutrition-calendar/static/css/main.19cc30d1.css.map",
+    "main.b1ee022c.js.map": "/nutrition-calendar/static/js/main.b1ee022c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19cc30d1.css",
+    "static/js/main.b1ee022c.js"
+  ]
+}
