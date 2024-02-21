@@ -1,3 +1,45 @@
-.wrapper {
-  background-color: gray;
+.datepicker-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: #eff3f6;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.date-control {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 0;
+  width: 34px;
+  height: 34px;
+}
+
+.arrow-icon {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+}
+
+.date-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  min-width: 40%;
+  padding: 0 8px;
+}
+
+.date-text {
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.calendar-icon {
+  position: absolute;
+  left: 5%;
 }
