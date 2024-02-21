@@ -31,5 +31,6 @@ jobs:
     - name: build
       run: make clear-build
 
-    - name: deploy
-      run: make deploy
+    # TODO: настроить SSH в секретах для деплоя
+    # - name: deploy
+    #   run: make deploy 
