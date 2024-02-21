@@ -4,7 +4,7 @@ install:
 start:
 	npm start
 
-build:
+clear-build:
 	rm -rf build
 	npm run build
 
@@ -13,3 +13,6 @@ lint:
 
 lint-fix:
 	npx eslint . --fix
+
+deploy:
+	npm run deploy
