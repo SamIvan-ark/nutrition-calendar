@@ -1,0 +1,35 @@
+.calendar-body {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.calendar-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-control-button {
+  width: 10%;
+}
+
+.calendar-weekdays {
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: lowercase;
+  font-size: .7em;
+  color: #818390;
+}
+
+.calendar-weeks {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: .7em;
+}
+
+li {
+  box-sizing: border-box;
+  width: 10%;
+  text-align: center;
+}

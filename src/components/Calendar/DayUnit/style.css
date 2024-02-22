@@ -1,0 +1,24 @@
+.day {
+  position: relative;
+  padding: 5px;
+  border: 1px solid #77c190;
+  border-radius: 8px;
+  color: #363a47;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.day::after {
+  display: block;
+  content: "";
+  width: 30%;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  position: absolute;
+  right: 35%;
+  bottom: 15%;
+  border-top: 2px solid red;
+}

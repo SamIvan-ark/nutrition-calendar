@@ -1,3 +1,4 @@
+import Calendar from '../../components/Calendar';
 import DatePicker from '../../components/DatePicker';
 import './style.css';
 
@@ -6,6 +7,7 @@ const NutritionPage = () => {
   return (
     <div className="wrapper">
       <DatePicker />
+      <Calendar />
     </div>
   );
 };
