@@ -21,9 +21,23 @@ const minusDay = (date) => {
   return newDate;
 };
 
+const plusMonth = (date) => {
+  const newDate = new Date(date);
+  newDate.setMonth(newDate.getMonth() + 1);
+  return newDate;
+};
+
+const minusMonth = (date) => {
+  const newDate = new Date(date);
+  newDate.setMonth(newDate.getMonth() - 1);
+  return newDate;
+};
+
 export {
   getCurrentDayWithoutHours,
   isCurrentDay,
   minusDay,
+  minusMonth,
   plusDay,
+  plusMonth,
 };
