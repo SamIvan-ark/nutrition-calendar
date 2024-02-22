@@ -295,3 +295,13 @@ template {
 [hidden] {
   display: none;
 }
+
+/* Remove paddings of ul and marks of li */
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
