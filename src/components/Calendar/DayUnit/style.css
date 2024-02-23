@@ -1,9 +1,9 @@
 .day {
   position: relative;
   padding: 5px;
-  border: 1px solid #77c190;
   border-radius: 8px;
   color: #363a47;
+  border: 1px solid transparent;
 }
 
 .hidden {
@@ -21,4 +21,22 @@
   right: 35%;
   bottom: 15%;
   border-top: 2px solid red;
+}
+
+.day-prepicked {
+  border: 1px solid #77c190;
+}
+
+.weekend button {
+  color: red;
+}
+
+.inactive button {
+  color: gray;
+}
+
+.daypicker-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }

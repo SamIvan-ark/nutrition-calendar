@@ -1,15 +1,13 @@
 import classnames from 'classnames';
-import { useState } from 'react';
 
 import icons from '../../icons';
 import {
-  getCurrentDayWithoutHours, isCurrentDay, minusDay, plusDay,
+  isCurrentDay, minusDay, plusDay,
 } from '../../utils/dates';
 import './style.css';
 
-const DatePicker = () => {
+const DatePicker = ({ date, updateDate }) => {
   const { ArrowLeft, ArrowRight, CalendarIcon } = icons;
-  const [date, updateDate] = useState(getCurrentDayWithoutHours());
   const pickedCurrentDay = isCurrentDay(date);
   const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
     day: 'numeric',

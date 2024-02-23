@@ -2,18 +2,21 @@ import { useState } from 'react';
 
 import icons from '../../icons';
 import calculateMonth from '../../utils/calculateMonth';
-import { getCurrentDayWithoutHours, minusMonth, plusMonth } from '../../utils/dates';
+import {
+  isSameDay, minusMonth, plusMonth,
+} from '../../utils/dates';
 import DayUnit from './DayUnit/DayUnit';
 import './style.css';
 
-const Calendar = () => {
+const Calendar = ({ date, updateDate }) => {
+  const [prepickedDay, setPrepickedDay] = useState(date);
   const { ArrowLeft, ArrowRight } = icons;
-  const [date, setDate] = useState(getCurrentDayWithoutHours());
-  const calendarData = calculateMonth(date);
+  const calendarData = calculateMonth(prepickedDay);
   const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
     month: 'long',
     year: 'numeric',
   });
+
   return (
     <div className="calendar-wrapper">
       <p>Календарь</p>
@@ -21,7 +24,7 @@ const Calendar = () => {
         <button
           aria-label="Предыдущий месяц"
           className="calendar-control-button"
-          onClick={() => setDate(minusMonth(date))}
+          onClick={() => setPrepickedDay(minusMonth(prepickedDay))}
           type="button"
         >
           <ArrowLeft />
@@ -30,7 +33,7 @@ const Calendar = () => {
         <button
           aria-label="Следующий месяц"
           className="calendar-control-button"
-          onClick={() => setDate(plusMonth(date))}
+          onClick={() => setPrepickedDay(plusMonth(prepickedDay))}
           type="button"
         >
           <ArrowRight />
@@ -51,11 +54,17 @@ const Calendar = () => {
         <div className="calendar-body">
           <ul className="calendar-weeks">
             {week.map((day) => (
-              <DayUnit day={day} key={day + Math.random()} />
+              <DayUnit
+                date={day}
+                isPrepicked={isSameDay(prepickedDay, day)}
+                key={day?.getDay()}
+                setPrepickedDay={setPrepickedDay}
+              />
             ))}
           </ul>
         </div>
       ))}
+      <button className="daypicker-submit" onClick={() => updateDate(prepickedDay)} type="button">Выбрать</button>
     </div>
   );
 };

@@ -1,13 +1,16 @@
+import { useState } from 'react';
+
 import Calendar from '../../components/Calendar';
 import DatePicker from '../../components/DatePicker';
+import { getCurrentDayWithoutHours } from '../../utils/dates';
 import './style.css';
 
 const NutritionPage = () => {
-  console.log('lalajopa');
+  const [date, updateDate] = useState(getCurrentDayWithoutHours());
   return (
     <div className="wrapper">
-      <DatePicker />
-      <Calendar />
+      <DatePicker date={date} updateDate={updateDate} />
+      <Calendar date={date} updateDate={updateDate} />
     </div>
   );
 };
