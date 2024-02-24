@@ -296,7 +296,11 @@ template {
   display: none;
 }
 
-/* Remove paddings of ul and marks of li */
+ /* Removing styles section
+   ========================================================================== */
+/**
+ * Remove paddings of ul and marks of li
+ */
 
 ul {
   padding: 0;
@@ -305,3 +309,13 @@ ul {
 li {
   list-style-type: none;
 }
+
+/**
+ * Remove default styles for buttons
+ */
+
+ button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+ }
