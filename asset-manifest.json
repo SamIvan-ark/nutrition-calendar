@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/nutrition-calendar/static/css/main.ee83ccef.css",
-    "main.js": "/nutrition-calendar/static/js/main.92515171.js",
+    "main.css": "/nutrition-calendar/static/css/main.cefd4346.css",
+    "main.js": "/nutrition-calendar/static/js/main.9a56b8a7.js",
     "index.html": "/nutrition-calendar/index.html",
-    "main.ee83ccef.css.map": "/nutrition-calendar/static/css/main.ee83ccef.css.map",
-    "main.92515171.js.map": "/nutrition-calendar/static/js/main.92515171.js.map"
+    "main.cefd4346.css.map": "/nutrition-calendar/static/css/main.cefd4346.css.map",
+    "main.9a56b8a7.js.map": "/nutrition-calendar/static/js/main.9a56b8a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee83ccef.css",
-    "static/js/main.92515171.js"
+    "static/css/main.cefd4346.css",
+    "static/js/main.9a56b8a7.js"
   ]
 }
