@@ -6,7 +6,7 @@ import {
 } from '../../utils/dates';
 import './style.css';
 
-const DatePicker = ({ date, updateDate }) => {
+const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
   const { ArrowLeft, ArrowRight, CalendarIcon } = icons;
   const pickedCurrentDay = isCurrentDay(date);
   const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
@@ -26,9 +26,13 @@ const DatePicker = ({ date, updateDate }) => {
       </button>
       <div className="date-container">
         <CalendarIcon />
-        <span className="date-text">
+        <button
+          className="date-picker"
+          onClick={() => setIsCalendarOpen(true)}
+          type="button"
+        >
           {dateFormatter.format(date)}
-        </span>
+        </button>
       </div>
       <button
         aria-label="Следующий день"

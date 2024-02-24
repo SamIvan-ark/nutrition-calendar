@@ -9,6 +9,7 @@ import './style.css';
 const NutritionPage = () => {
   const [date, updateDate] = useState(getCurrentDayWithoutHours());
   const [nutritionData, setNutritionData] = useState({});
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const nutritionDataForCurrentDay = nutritionData[date.toDateString()] || undefined;
   return (
     <div className="wrapper">
@@ -19,6 +20,16 @@ const NutritionPage = () => {
         nutritionDataForCurrentDay={nutritionDataForCurrentDay}
         setNutritionData={setNutritionData}
       />
+      {isCalendarOpen
+        ? (
+          <Calendar
+            date={date}
+            nutritionData={nutritionData}
+            setIsCalendarOpen={setIsCalendarOpen}
+            updateDate={updateDate}
+          />
+        )
+        : null}
     </div>
   );
 };

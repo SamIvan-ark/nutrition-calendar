@@ -8,7 +8,6 @@
 
 .date-control {
   position: relative;
-  border: none;
   border-radius: 12px;
   background-color: #fff;
   padding: 0;
@@ -39,7 +38,7 @@
   padding: 0 8px;
 }
 
-.date-text {
+.date-picker {
   font-weight: 600;
   font-size: 14px;
   display: inline-block;

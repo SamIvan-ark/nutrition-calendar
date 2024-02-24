@@ -19,6 +19,11 @@ const Calendar = ({
     year: 'numeric',
   });
 
+  const handlePickDay = (day) => {
+    updateDate(day);
+    setIsCalendarOpen(false);
+  };
+
   return (
     <div className="calendar-wrapper">
       <p>Календарь</p>
@@ -58,19 +63,19 @@ const Calendar = ({
             {week.map((day) => {
               const currentDayNutritionData = nutritionData[day?.toDateString()];
               return (
-              <DayUnit
+                <DayUnit
                   currentDayNutritionData={currentDayNutritionData}
-                date={day}
-                isPrepicked={isSameDay(prepickedDay, day)}
-                key={day?.getDay()}
-                setPrepickedDay={setPrepickedDay}
-              />
+                  date={day}
+                  isPrepicked={isSameDay(prepickedDay, day)}
+                  key={day?.getDay()}
+                  setPrepickedDay={setPrepickedDay}
+                />
               );
             })}
           </ul>
         </div>
       ))}
-      <button className="daypicker-submit" onClick={() => updateDate(prepickedDay)} type="button">Выбрать</button>
+      <button className="daypicker-submit" onClick={() => handlePickDay(prepickedDay)} type="button">Выбрать</button>
     </div>
   );
 };
