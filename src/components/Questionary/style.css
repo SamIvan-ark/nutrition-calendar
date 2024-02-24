@@ -1,0 +1,15 @@
+.questionary-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.75em;
+}
+
+.grade-good {
+  color: #19c152;
+}
+.grade-bad {
+  color: #ffc700;
+}
+.grade-neutral {
+  color: #919191;
+}

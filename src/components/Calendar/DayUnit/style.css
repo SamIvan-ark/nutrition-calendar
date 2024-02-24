@@ -10,17 +10,30 @@
   visibility: hidden;
 }
 
-.day::after {
+.dashed::after {
   display: block;
   content: "";
   width: 30%;
-  font-size: 20px;
-  font-weight: bold;
-  color: red;
+  color: gray;
   position: absolute;
   right: 35%;
   bottom: 15%;
-  border-top: 2px solid red;
+  border-top: 1px solid rgba(150, 150, 150, 0.505);
+  border-bottom: 1px solid rgba(150, 150, 150, 0.505);
+  border-radius: 2px;
+}
+
+.rate-good::after {
+  border-top: 1px solid #19c152;
+  border-bottom: 1px solid #19c152;
+}
+.rate-bad::after {
+  border-top: 1px solid #ffc700;
+  border-bottom: 1px solid #ffc700;
+}
+.rate-neutral::after {
+  border-top: 1px solid #919191;
+  border-bottom: 1px solid #919191;
 }
 
 .day-prepicked {
@@ -33,10 +46,4 @@
 
 .inactive button {
   color: gray;
-}
-
-.daypicker-button {
-  padding: 0;
-  background-color: transparent;
-  border: none;
 }

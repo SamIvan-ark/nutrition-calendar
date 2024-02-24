@@ -5,10 +5,12 @@ import calculateMonth from '../../utils/calculateMonth';
 import {
   isSameDay, minusMonth, plusMonth,
 } from '../../utils/dates';
-import DayUnit from './DayUnit/DayUnit';
+import DayUnit from './DayUnit';
 import './style.css';
 
-const Calendar = ({ date, updateDate }) => {
+const Calendar = ({
+  date, updateDate, nutritionData, setIsCalendarOpen,
+}) => {
   const [prepickedDay, setPrepickedDay] = useState(date);
   const { ArrowLeft, ArrowRight } = icons;
   const calendarData = calculateMonth(prepickedDay);
@@ -53,14 +55,18 @@ const Calendar = ({ date, updateDate }) => {
       {calendarData.map((week) => (
         <div className="calendar-body">
           <ul className="calendar-weeks">
-            {week.map((day) => (
+            {week.map((day) => {
+              const currentDayNutritionData = nutritionData[day?.toDateString()];
+              return (
               <DayUnit
+                  currentDayNutritionData={currentDayNutritionData}
                 date={day}
                 isPrepicked={isSameDay(prepickedDay, day)}
                 key={day?.getDay()}
                 setPrepickedDay={setPrepickedDay}
               />
-            ))}
+              );
+            })}
           </ul>
         </div>
       ))}

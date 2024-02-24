@@ -11,6 +11,7 @@
 }
 
 .calendar-control-button {
+  position: relative;
   width: 10%;
 }
 

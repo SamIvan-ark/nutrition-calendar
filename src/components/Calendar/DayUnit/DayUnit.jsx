@@ -7,6 +7,7 @@ const DayUnit = ({
   date,
   setPrepickedDay,
   isPrepicked,
+  currentDayNutritionData,
 }) => {
   const day = date?.getDate();
   if (day === undefined) {
@@ -21,6 +22,8 @@ const DayUnit = ({
     'day-prepicked': isPrepicked,
     weekend: date?.getDay() === 0 || date?.getDay() === 6,
     inactive: isDayInFuture(date),
+    dashed: !isDayInFuture(date),
+    [`rate-${currentDayNutritionData}`]: !!currentDayNutritionData,
   });
   return (
     <li className={classes}>
