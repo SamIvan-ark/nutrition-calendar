@@ -4,9 +4,29 @@ const getCurrentDayWithoutHours = () => {
   return currentDate;
 };
 
+const getFirstDayOfSameMonth = (date) => {
+  const newDate = new Date(date);
+  newDate.setDate(1);
+  return newDate;
+};
+
 const isCurrentDay = (date) => {
   const currentDay = getCurrentDayWithoutHours();
   return currentDay.getTime() === date.getTime();
+};
+
+const isCurrentMonth = (date) => {
+  const currentMonth = getFirstDayOfSameMonth(getCurrentDayWithoutHours());
+  return currentMonth.getTime() === date.getTime();
+};
+
+const getYearAndMonthString = (date) => `${date.getFullYear()} ${date.getMonth()}`;
+
+const getReadableYearAndMonthString = (date) => {
+  const [year, month] = getYearAndMonthString(date).split(' ');
+  return new Date(year, month)
+    .toLocaleString('ru', { month: 'long', year: 'numeric' })
+    .slice(0, -3);
 };
 
 const isSameDay = (date1, date2) => {
@@ -47,7 +67,11 @@ const isDayInFuture = (date) => {
 
 export {
   getCurrentDayWithoutHours,
+  getFirstDayOfSameMonth,
+  getReadableYearAndMonthString,
+  getYearAndMonthString,
   isCurrentDay,
+  isCurrentMonth,
   isDayInFuture,
   isSameDay,
   minusDay,

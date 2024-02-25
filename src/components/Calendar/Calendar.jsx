@@ -1,9 +1,16 @@
+import cn from 'classnames';
 import { useState } from 'react';
 
 import icons from '../../icons';
 import calculateMonth from '../../utils/calculateMonth';
 import {
-  isSameDay, minusMonth, plusMonth,
+  getFirstDayOfSameMonth,
+  getReadableYearAndMonthString,
+  getYearAndMonthString,
+  isCurrentMonth,
+  isSameDay,
+  minusMonth,
+  plusMonth,
 } from '../../utils/dates';
 import createUniqueIdGenerator from '../../utils/uniqueIdGenerator';
 import DayUnit from './DayUnit';
@@ -15,17 +22,17 @@ const Calendar = ({
   const nextUniqueWeekId = createUniqueIdGenerator();
   const nextUniqueDayId = createUniqueIdGenerator();
   const [prepickedDay, setPrepickedDay] = useState(date);
+  const [
+    firstDayOfVisibleMonth,
+    setFirstDayOfVisibleMonth,
+  ] = useState(getFirstDayOfSameMonth(date));
   const { ArrowLeft, ArrowRight } = icons;
-  const calendarData = calculateMonth(prepickedDay);
-  const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
-    month: 'long',
-  });
+  const calendarData = calculateMonth(getYearAndMonthString(firstDayOfVisibleMonth));
 
   const handlePickDay = (day) => {
     updateDate(day);
     setIsCalendarOpen(false);
   };
-
   return (
     <div className="calendar-wrapper">
       <p className="calendar-header">Календарь</p>
@@ -33,19 +40,23 @@ const Calendar = ({
         <button
           aria-label="Предыдущий месяц"
           className="calendar-control-button"
-          onClick={() => setPrepickedDay(minusMonth(prepickedDay))}
+          onClick={() => setFirstDayOfVisibleMonth(minusMonth(firstDayOfVisibleMonth))}
           type="button"
         >
           <ArrowLeft className="calendar-arrow-icon" />
         </button>
-        <p>{dateFormatter.format(date)}</p>
+        <p>{getReadableYearAndMonthString(firstDayOfVisibleMonth)}</p>
         <button
           aria-label="Следующий месяц"
           className="calendar-control-button"
-          onClick={() => setPrepickedDay(plusMonth(prepickedDay))}
+          disabled={isCurrentMonth(firstDayOfVisibleMonth)}
+          onClick={() => setFirstDayOfVisibleMonth(plusMonth(firstDayOfVisibleMonth))}
           type="button"
         >
-          <ArrowRight className="calendar-arrow-icon" />
+          <ArrowRight className={cn('calendar-control-button', {
+            'button-disabled': isCurrentMonth(firstDayOfVisibleMonth),
+          })}
+          />
         </button>
       </div>
       <div className="calendar-body">

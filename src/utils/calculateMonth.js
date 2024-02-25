@@ -1,6 +1,5 @@
-const calculateMonth = (date) => {
-  const year = date.getFullYear();
-  const month = date.getMonth();
+const calculateMonth = (monthAndYearString) => {
+  const [year, month] = monthAndYearString.split(' ');
 
   // определяем дни недели начала и конца месяца и последнее число месяца
   const dayone = new Date(year, month, 1).getDay();
@@ -12,8 +11,8 @@ const calculateMonth = (date) => {
     daysOfMonths.push(new Date(year, month, i));
   }
 
-  // рассчитываем количество дней с прошлого месяца, которые «попали» в текущий лист
-  // календаря — эти дни нужно пропустить
+  // рассчитываем количество дней с прошлого и следующего месяца,
+  // которые «попали» в текущий лист календаря — эти дни нужно пропустить
   const startEmptyDaysCount = dayone === 0 ? 6 : dayone - 1;
   const endEmptyDaysCount = dayend === 0 ? 0 : 7 - dayend;
   const emptyDaysInStart = Array(startEmptyDaysCount).fill(null);
