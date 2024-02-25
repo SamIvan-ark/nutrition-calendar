@@ -30,7 +30,7 @@ const Questionary = ({
   return (
     <div className="questionary-wrapper">
       <p className={`day-grade grade-${nutritionDataForCurrentDay}`}>{text}</p>
-      <button className="day-grade grade-default" onClick={() => handleDeleteEntry()} type="button">x</button>
+      <button className="day-grade grade-reset" onClick={() => handleDeleteEntry()} type="button">Изменить выбор</button>
     </div>
   );
 };

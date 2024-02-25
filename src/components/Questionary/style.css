@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   font-size: 1.75em;
+  padding-top: 15px;
+}
+
+.questionary-wrapper > * {
+  margin: 0 auto;
 }
 
 .grade-good {
@@ -10,6 +15,11 @@
 .grade-bad {
   color: #ffc700;
 }
+
 .grade-neutral {
   color: #919191;
+}
+
+.grade-reset {
+  font-size: 14px;
 }
