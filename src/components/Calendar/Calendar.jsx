@@ -5,12 +5,15 @@ import calculateMonth from '../../utils/calculateMonth';
 import {
   isSameDay, minusMonth, plusMonth,
 } from '../../utils/dates';
+import createUniqueIdGenerator from '../../utils/uniqueIdGenerator';
 import DayUnit from './DayUnit';
 import './style.css';
 
 const Calendar = ({
   date, updateDate, nutritionData, setIsCalendarOpen,
 }) => {
+  const nextUniqueWeekId = createUniqueIdGenerator();
+  const nextUniqueDayId = createUniqueIdGenerator();
   const [prepickedDay, setPrepickedDay] = useState(date);
   const { ArrowLeft, ArrowRight } = icons;
   const calendarData = calculateMonth(prepickedDay);
@@ -58,8 +61,7 @@ const Calendar = ({
         </ul>
       </div>
       {calendarData.map((week) => (
-        <div className="calendar-body">
-          <ul className="calendar-weeks">
+          <ul className="calendar-week" key={nextUniqueWeekId()}>
             {week.map((day) => {
               const currentDayNutritionData = nutritionData[day?.toDateString()];
               return (
@@ -67,7 +69,7 @@ const Calendar = ({
                   currentDayNutritionData={currentDayNutritionData}
                   date={day}
                   isPrepicked={isSameDay(prepickedDay, day)}
-                  key={day?.getDay()}
+                  key={nextUniqueDayId()}
                   setPrepickedDay={setPrepickedDay}
                 />
               );

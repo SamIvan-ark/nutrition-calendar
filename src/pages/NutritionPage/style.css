@@ -1,0 +1,8 @@
+.wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.content {
+  height: 100vw;
+}
