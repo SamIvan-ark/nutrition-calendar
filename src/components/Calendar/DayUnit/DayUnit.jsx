@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import { isDayInFuture } from '../../../utils/dates';
 import './style.css';
@@ -17,7 +17,7 @@ const DayUnit = ({
       </li>
     );
   }
-  const classes = classNames('day', {
+  const classes = cn('day', {
     hidden: day === undefined,
     'day-prepicked': isPrepicked,
     weekend: date?.getDay() === 0 || date?.getDay() === 6,

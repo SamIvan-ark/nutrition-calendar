@@ -1,4 +1,4 @@
-import classnames from 'classnames';
+import cn from 'classnames';
 
 import icons from '../../icons';
 import {
@@ -22,7 +22,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
         onClick={() => updateDate(minusDay(date))}
         type="button"
       >
-        <ArrowLeft />
+        <ArrowLeft className="arrow-icon" />
       </button>
       <div className="date-container">
         <CalendarIcon />
@@ -36,7 +36,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
       </div>
       <button
         aria-label="Следующий день"
-        className={classnames(
+        className={cn(
           'date-control',
           { 'button-disabled': pickedCurrentDay },
         )}
@@ -44,7 +44,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
         onClick={() => updateDate(plusDay(date))}
         type="button"
       >
-        <ArrowRight />
+        <ArrowRight className="arrow-icon" />
       </button>
     </div>
   );

@@ -4,6 +4,12 @@
   border-radius: 8px;
   color: #363a47;
   border: 1px solid transparent;
+  transition: border 500ms;
+  user-select: none;
+}
+
+.day-prepicked {
+  border: 1px solid #77c190;
 }
 
 .hidden {
@@ -34,10 +40,6 @@
 .rate-neutral::after {
   border-top: 1px solid #919191;
   border-bottom: 1px solid #919191;
-}
-
-.day-prepicked {
-  border: 1px solid #77c190;
 }
 
 .weekend button {

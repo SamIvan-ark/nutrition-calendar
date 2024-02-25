@@ -19,7 +19,6 @@ const Calendar = ({
   const calendarData = calculateMonth(prepickedDay);
   const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
     month: 'long',
-    year: 'numeric',
   });
 
   const handlePickDay = (day) => {
@@ -29,7 +28,7 @@ const Calendar = ({
 
   return (
     <div className="calendar-wrapper">
-      <p>Календарь</p>
+      <p className="calendar-header">Календарь</p>
       <div className="calendar-control">
         <button
           aria-label="Предыдущий месяц"
@@ -37,7 +36,7 @@ const Calendar = ({
           onClick={() => setPrepickedDay(minusMonth(prepickedDay))}
           type="button"
         >
-          <ArrowLeft />
+          <ArrowLeft className="calendar-arrow-icon" />
         </button>
         <p>{dateFormatter.format(date)}</p>
         <button
@@ -46,7 +45,7 @@ const Calendar = ({
           onClick={() => setPrepickedDay(plusMonth(prepickedDay))}
           type="button"
         >
-          <ArrowRight />
+          <ArrowRight className="calendar-arrow-icon" />
         </button>
       </div>
       <div className="calendar-body">
@@ -59,8 +58,7 @@ const Calendar = ({
           <li>Сб</li>
           <li>Вс</li>
         </ul>
-      </div>
-      {calendarData.map((week) => (
+        {calendarData.map((week) => (
           <ul className="calendar-week" key={nextUniqueWeekId()}>
             {week.map((day) => {
               const currentDayNutritionData = nutritionData[day?.toDateString()];
@@ -75,8 +73,9 @@ const Calendar = ({
               );
             })}
           </ul>
-        </div>
-      ))}
+        ))}
+      </div>
+
       <button className="daypicker-submit" onClick={() => handlePickDay(prepickedDay)} type="button">Выбрать</button>
     </div>
   );
