@@ -4,5 +4,16 @@
 }
 
 .content {
-  height: 100vw;
+  height: 100vh;
+}
+
+.blurred {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  background-color: rgba(90, 90, 90, 0.566) !important;
+}
+
+.blurred * {
+  background-color: transparent;
 }

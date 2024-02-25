@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { useState } from 'react';
 
 import Calendar from '../../components/Calendar';
@@ -11,15 +12,19 @@ const NutritionPage = () => {
   const [nutritionData, setNutritionData] = useState({});
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const nutritionDataForCurrentDay = nutritionData[date.toDateString()] || undefined;
+
+  const contentClasses = cn('content', { blurred: isCalendarOpen });
   return (
     <div className="wrapper">
-      <DatePicker date={date} setIsCalendarOpen={setIsCalendarOpen} updateDate={updateDate} />
-      <Questionary
-        date={date}
-        nutritionData={nutritionData}
-        nutritionDataForCurrentDay={nutritionDataForCurrentDay}
-        setNutritionData={setNutritionData}
-      />
+      <main className={contentClasses}>
+        <DatePicker date={date} setIsCalendarOpen={setIsCalendarOpen} updateDate={updateDate} />
+        <Questionary
+          date={date}
+          nutritionData={nutritionData}
+          nutritionDataForCurrentDay={nutritionDataForCurrentDay}
+          setNutritionData={setNutritionData}
+        />
+      </main>
       {isCalendarOpen
         ? (
           <Calendar
