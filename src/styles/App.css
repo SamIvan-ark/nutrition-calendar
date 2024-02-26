@@ -1,3 +1,14 @@
 body {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
+
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.button-disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+}

@@ -1,9 +1,14 @@
 .datepicker-wrapper {
+  background-color: #eff3f6;
+}
+
+.datepicker {
   display: flex;
   justify-content: space-between;
-  background-color: #eff3f6;
   padding: 12px;
   box-sizing: border-box;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .date-control {
@@ -13,12 +18,6 @@
   padding: 0;
   width: 34px;
   height: 34px;
-  cursor: pointer;
-}
-
-.button-disabled {
-  background-color: transparent;
-  cursor: not-allowed;
 }
 
 .arrow-icon {
@@ -42,6 +41,8 @@
   font-weight: 600;
   font-size: 14px;
   display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 .calendar-icon {

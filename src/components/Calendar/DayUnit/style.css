@@ -4,8 +4,6 @@
   color: #363a47;
   border: 1px solid transparent;
   transition: border 500ms;
-  -webkit-user-select: none;
-  user-select: none;
   width: 50px;
   height: 33px;
 }

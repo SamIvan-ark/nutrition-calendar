@@ -35,6 +35,7 @@ const Calendar = ({
   };
   return (
     <div className="calendar-wrapper">
+      <hr className="calendar-divider" />
       <p className="calendar-header">Календарь</p>
       <div className="calendar-control">
         <button
