@@ -1,5 +1,5 @@
-const ArrowLeft = ({ size = 16, className }) => (
-  <svg className={className} fill="none" height={`${size}px`} transform="rotate(180)" viewBox="0 0 24 24" width={`${size}px`} xmlns="http://www.w3.org/2000/svg">
+const ArrowLeft = ({ className }) => (
+  <svg className={`arrow-right ${className}`} fill="none" height="16px" viewBox="0 0 24 24" width="16px" xmlns="http://www.w3.org/2000/svg">
     <g id="SVGRepo_bgCarrier" strokeWidth="0" />
     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
     <g id="SVGRepo_iconCarrier">

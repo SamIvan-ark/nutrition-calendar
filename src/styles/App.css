@@ -12,3 +12,8 @@ button {
   background-color: transparent;
   cursor: not-allowed;
 }
+
+.arrow-right {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
