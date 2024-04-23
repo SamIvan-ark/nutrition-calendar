@@ -1,8 +1,10 @@
 const calculateMonth = (monthAndYearString) => {
-  const [year, month] = monthAndYearString.split(' ');
+  const [year, month] = monthAndYearString
+    .split(' ')
+    .map(Number);
 
   // определяем дни недели начала и конца месяца и последнее число месяца
-  const dayone = new Date(year, month, 1).getDay();
+  const dayone = new Date(year, month).getDay();
   const lastdate = new Date(year, month + 1, 0).getDate();
   const dayend = new Date(year, month, lastdate).getDay();
 
