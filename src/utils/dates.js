@@ -24,9 +24,10 @@ const getYearAndMonthString = (date) => `${date.getFullYear()} ${date.getMonth()
 
 const getReadableYearAndMonthString = (date) => {
   const [year, month] = getYearAndMonthString(date).split(' ');
+  const YEAR_LITERAL_INDEX_TO_BE_SLICED = -3;
   return new Date(year, month)
     .toLocaleString('ru', { month: 'long', year: 'numeric' })
-    .slice(0, -3);
+    .slice(0, YEAR_LITERAL_INDEX_TO_BE_SLICED);
 };
 
 const isSameDay = (date1, date2) => {

@@ -1,4 +1,4 @@
-## Front-end Developer test — Nutrition Calendar
+## Front-end Developer test task — Nutrition Calendar
 
 ### Features
 

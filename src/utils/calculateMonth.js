@@ -1,3 +1,7 @@
+const COUNT_OF_DAYS_IN_WEEK = 7;
+const COUNT_OF_DAYS_IN_WEEK_MINUS_ONE = 6;
+const SUNDAY_INDEX = 0;
+
 const calculateMonth = (monthAndYearString) => {
   const [year, month] = monthAndYearString
     .split(' ')
@@ -15,8 +19,12 @@ const calculateMonth = (monthAndYearString) => {
 
   // рассчитываем количество дней с прошлого и следующего месяца,
   // которые «попали» в текущий лист календаря — эти дни нужно пропустить
-  const startEmptyDaysCount = dayone === 0 ? 6 : dayone - 1;
-  const endEmptyDaysCount = dayend === 0 ? 0 : 7 - dayend;
+
+  const startEmptyDaysCount = dayone === SUNDAY_INDEX
+    ? COUNT_OF_DAYS_IN_WEEK_MINUS_ONE
+    : dayone - 1;
+  const endEmptyDaysCount = dayend === SUNDAY_INDEX ? 0 : COUNT_OF_DAYS_IN_WEEK - dayend;
+
   const emptyDaysInStart = Array(startEmptyDaysCount).fill(null);
   const emptyDaysInEnd = Array(endEmptyDaysCount).fill(null);
 
@@ -24,9 +32,8 @@ const calculateMonth = (monthAndYearString) => {
 
   // разбиваем на двумерный массив
   const calendarData = [];
-
-  for (let i = 0; i < daysOfMonthsWithEmptyDays.length; i += 7) {
-    calendarData.push(daysOfMonthsWithEmptyDays.slice(i, i + 7));
+  for (let i = 0; i < daysOfMonthsWithEmptyDays.length; i += COUNT_OF_DAYS_IN_WEEK) {
+    calendarData.push(daysOfMonthsWithEmptyDays.slice(i, i + COUNT_OF_DAYS_IN_WEEK));
   }
   return calendarData;
 };
