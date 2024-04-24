@@ -6,8 +6,7 @@ import {
 } from '../../utils/dates';
 import './style.css';
 
-const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
-  const { ArrowLeft, ArrowRight, CalendarIcon } = icons;
+const DatePicker = ({ date, onDateUpdate, onCalendarToggle }) => {
   const pickedCurrentDay = isCurrentDay(date);
   const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
     day: 'numeric',
@@ -20,7 +19,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
         <button
           aria-label="Предыдущий день"
           className="date-control"
-          onClick={() => updateDate(minusDay(date))}
+          onClick={() => onDateUpdate(minusDay(date))}
           type="button"
         >
           <ArrowLeft className="arrow-icon" />
@@ -29,7 +28,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
           <CalendarIcon />
           <button
             className="date-picker"
-            onClick={() => setIsCalendarOpen(true)}
+            onClick={() => onCalendarToggle(true)}
             type="button"
           >
             {dateFormatter.format(date)}
@@ -42,7 +41,7 @@ const DatePicker = ({ date, updateDate, setIsCalendarOpen }) => {
             { 'button-disabled': pickedCurrentDay },
           )}
           disabled={pickedCurrentDay}
-          onClick={() => updateDate(plusDay(date))}
+          onClick={() => onDateUpdate(plusDay(date))}
           type="button"
         >
           <ArrowRight className="arrow-icon" />

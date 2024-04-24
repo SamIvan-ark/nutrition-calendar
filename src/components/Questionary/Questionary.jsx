@@ -2,8 +2,7 @@ import './style.css';
 
 const Questionary = ({
   nutritionDataForCurrentDay,
-  setNutritionData,
-  nutritionData,
+  onSettingNutritionData,
   date,
 }) => {
   const text = 'Hello, World!';

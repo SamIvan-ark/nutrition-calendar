@@ -13,28 +13,39 @@ const NutritionPage = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const nutritionDataForCurrentDay = nutritionData[date.toDateString()] || undefined;
 
+  const handleUpdateDate = (newDate) => {
+    updateDate(newDate);
+  };
+  const handleIsCalendarOpen = (isOpen) => {
+    setIsCalendarOpen(isOpen);
+  };
+  const handleSetNutritionData = (newNutritionData) => {
+    setNutritionData(newNutritionData);
+  };
   const contentClasses = cn('content', { blurred: isCalendarOpen });
   return (
     <div className="wrapper">
       <main className={contentClasses}>
-        <DatePicker date={date} setIsCalendarOpen={setIsCalendarOpen} updateDate={updateDate} />
+        <DatePicker
+          date={date}
+          onCalendarToggle={handleIsCalendarOpen}
+          onDateUpdate={handleUpdateDate}
+        />
         <Questionary
           date={date}
           nutritionData={nutritionData}
           nutritionDataForCurrentDay={nutritionDataForCurrentDay}
-          setNutritionData={setNutritionData}
+          onSettingNutritionData={handleSetNutritionData}
         />
       </main>
-      {isCalendarOpen
-        ? (
-          <Calendar
-            date={date}
-            nutritionData={nutritionData}
-            setIsCalendarOpen={setIsCalendarOpen}
-            updateDate={updateDate}
-          />
-        )
-        : null}
+      {isCalendarOpen && (
+        <Calendar
+          date={date}
+          nutritionData={nutritionData}
+          onCalendarToggle={handleIsCalendarOpen}
+          updateDate={updateDate}
+        />
+      )}
     </div>
   );
 };

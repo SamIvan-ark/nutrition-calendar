@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import icons from '../../icons';
 import calculateMonth from '../../utils/calculateMonth';
@@ -16,23 +16,27 @@ import createUniqueIdGenerator from '../../utils/uniqueIdGenerator';
 import DayUnit from './DayUnit';
 import './style.css';
 
+const nextUniqueWeekId = createUniqueIdGenerator();
+const nextUniqueDayId = createUniqueIdGenerator();
+const namesOfDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
 const Calendar = ({
-  date, updateDate, nutritionData, setIsCalendarOpen,
+  date, updateDate, nutritionData, onCalendarToggle,
 }) => {
-  const nextUniqueWeekId = createUniqueIdGenerator();
-  const nextUniqueDayId = createUniqueIdGenerator();
   const [prepickedDay, setPrepickedDay] = useState(date);
   const [
     firstDayOfVisibleMonth,
     setFirstDayOfVisibleMonth,
   ] = useState(getFirstDayOfSameMonth(date));
-  const { ArrowLeft, ArrowRight } = icons;
-  const calendarData = calculateMonth(getYearAndMonthString(firstDayOfVisibleMonth));
+  const calendarData = useMemo(
+    () => calculateMonth(getYearAndMonthString(firstDayOfVisibleMonth), [firstDayOfVisibleMonth]),
+  );
 
   const handlePickDay = (day) => {
     updateDate(day);
-    setIsCalendarOpen(false);
+    onCalendarToggle(false);
   };
+  // key={nextUniqueDayId()} выпилить, генерировать ключи при расчете месяца
   return (
     <div className="calendar-wrapper">
       <hr className="calendar-divider" />
@@ -62,13 +66,7 @@ const Calendar = ({
       </div>
       <div className="calendar-body">
         <ul className="calendar-weekdays">
-          <li>Пн</li>
-          <li>Вт</li>
-          <li>Ср</li>
-          <li>Чт</li>
-          <li>Пт</li>
-          <li>Сб</li>
-          <li>Вс</li>
+          {namesOfDays.map((dayName) => <li key={dayName}>{dayName}</li>)}
         </ul>
         {calendarData.map((week) => (
           <ul className="calendar-week" key={nextUniqueWeekId()}>
