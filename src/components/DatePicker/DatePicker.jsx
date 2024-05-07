@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import icons from '../../icons';
+import { ArrowLeft, ArrowRight, CalendarIcon } from '../../icons';
 import {
   isCurrentDay, minusDay, plusDay,
 } from '../../utils/dates';

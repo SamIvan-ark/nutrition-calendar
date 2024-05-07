@@ -3,6 +3,9 @@ import cn from 'classnames';
 import { isDayInFuture } from '../../../utils/dates';
 import './style.css';
 
+const INDEX_OF_SATURDAY = 6;
+const INDEX_OF_SUNDAY = 0;
+
 const DayUnit = ({
   date,
   setPrepickedDay,
@@ -20,7 +23,7 @@ const DayUnit = ({
   const classes = cn('day', {
     hidden: day === undefined,
     'day-prepicked': isPrepicked,
-    weekend: date?.getDay() === 0 || date?.getDay() === 6,
+    weekend: date?.getDay() === INDEX_OF_SATURDAY || date?.getDay() === INDEX_OF_SUNDAY,
     inactive: isDayInFuture(date),
     dashed: !isDayInFuture(date),
     [`rate-${currentDayNutritionData}`]: !!currentDayNutritionData,

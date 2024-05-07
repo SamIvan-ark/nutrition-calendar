@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useMemo, useState } from 'react';
 
-import icons from '../../icons';
+import { ArrowLeft, ArrowRight } from '../../icons';
 import calculateMonth from '../../utils/calculateMonth';
 import {
   getFirstDayOfSameMonth,
@@ -72,12 +72,14 @@ const Calendar = ({
           <ul className="calendar-week" key={nextUniqueWeekId()}>
             {week.map((day) => {
               const currentDayNutritionData = nutritionData[day?.toDateString()];
+              const key = nextUniqueDayId();
+              console.log(key);
               return (
                 <DayUnit
                   currentDayNutritionData={currentDayNutritionData}
                   date={day}
                   isPrepicked={isSameDay(prepickedDay, day)}
-                  key={nextUniqueDayId()}
+                  key={key}
                   setPrepickedDay={setPrepickedDay}
                 />
               );

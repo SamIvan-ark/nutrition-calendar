@@ -1,20 +1,23 @@
 import './style.css';
 
+const text = 'Hello, World!';
+
 const Questionary = ({
   nutritionDataForCurrentDay,
   onSettingNutritionData,
   date,
 }) => {
-  const text = 'Hello, World!';
   const handleSetEntry = (value) => {
-    const newData = { ...nutritionData };
-    newData[date.toDateString()] = value;
-    setNutritionData(newData);
+    onSettingNutritionData((prevState) => ({
+      ...prevState,
+      [date.toDateString()]: value,
+    }));
   };
   const handleDeleteEntry = () => {
-    const newData = { ...nutritionData };
-    delete newData[date.toDateString()];
-    setNutritionData(newData);
+    onSettingNutritionData((prevState) => ({
+      ...prevState,
+      [date.toDateString()]: undefined,
+    }));
   };
 
   if (!nutritionDataForCurrentDay) {

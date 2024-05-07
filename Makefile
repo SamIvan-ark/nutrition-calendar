@@ -4,8 +4,7 @@ install:
 start:
 	npm start
 
-clear-build:
-	rm -rf build
+build:
 	npm run build
 
 lint:
@@ -16,3 +15,5 @@ lint-fix:
 
 deploy:
 	npm run deploy
+
+.PHONY: build
